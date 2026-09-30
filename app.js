@@ -6,7 +6,8 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);
+const flash = require("connect-flash");
 
 const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
@@ -32,7 +33,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
 
-        store: MongoStore.create({
+        store: new MongoStore({
             mongoUrl: process.env.MONGODB_URI
         })
     })
