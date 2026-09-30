@@ -6,7 +6,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongo").default;
 const flash = require("connect-flash");
 
 const ownersRouter = require("./routes/ownersRouter");
@@ -40,6 +40,7 @@ app.use(
 );
 
 app.use(flash());
+
 
 
 // ROUTES
