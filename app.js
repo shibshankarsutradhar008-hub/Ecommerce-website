@@ -6,8 +6,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);const flash = require("connect-flash");
 
 const ownersRouter = require("./routes/ownersRouter");
 const productsRouter = require("./routes/productsRouter");
